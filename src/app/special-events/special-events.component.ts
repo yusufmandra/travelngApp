@@ -11,21 +11,53 @@ import { Router } from '@angular/router'
 export class SpecialEventsComponent implements OnInit {
 
   specialEvents = []
+  specialData = {}
+  eventAdded = false;
+
   constructor(private _eventService: EventService,
               private _router: Router) { }
 
   ngOnInit() {
+    this.getSpecialEvents();
+  }
+
+  getSpecialEvents()
+  {
     this._eventService.getSpecialEvents()
       .subscribe(
         res => this.specialEvents = res,
         err => {
           if( err instanceof HttpErrorResponse ) {
             if (err.status === 401) {
-              this._router.navigate(['/login'])
+              this._router.navigate(['/login']);
             }
           }
         }
       )
+  }
+
+  addSpecial()
+  {
+    this._eventService.addSpecialEvents(this.specialData)
+      .subscribe(
+        res => {
+          this.eventAdded = true;
+          this.specialData = {};
+          this.getSpecialEvents();
+        },
+        err => {
+          if( err instanceof HttpErrorResponse ) {
+            if (err.status === 401) {
+              this._router.navigate(['/login']);
+            }
+          }
+        }
+      )
+  }
+
+  deleteSpecial(id)
+  {
+    console.log(`Id1 : ${id}`);
   }
 
 }

@@ -1,14 +1,41 @@
 <div class="row mt-5">
-    <div class="col-md-4 mb-3" *ngFor="let event of specialEvents">
-      <div class="card text-center">
-        <div class="card-body">
-          <h5 class="card-title">{{event.name}}</h5>
-          <p class="card-text">{{event.description}}</p>
-          <a href="#" class="btn btn-success">Buy Tickets</a>
-        </div>
-        <div class="card-footer text-muted">
-          {{event.date | date:'shortDate'}}
-        </div>
+  <div class="col-md-12">
+    <h1>Add Events</h1>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="eventAdded">
+      Event added successfully.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <form class="form">
+      <div class="form-group">
+        <label for="formGroupExampleInput">Events Title</label>
+        <input type="text" class="form-control" [(ngModel)]="specialData.name" name="name" id="formGroupExampleInput" placeholder="Events Title">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Events Description</label>
+        <input type="text" class="form-control" [(ngModel)]="specialData.description" name="description" id="formGroupExampleInput2" placeholder="Events Description">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput3">Events Date</label>
+        <input type="text" class="form-control" [(ngModel)]="specialData.date" name="date" id="formGroupExampleInput3" placeholder="Events Date">
+      </div>
+      <button type="button" (click)="addSpecial()" class="btn btn-primary float-right">Add Event</button>
+    </form>
+  </div>
+</div>
+<hr>
+<div class="row mt-5">
+  <div class="col-md-4 mb-3" *ngFor="let event of specialEvents">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">{{event.name}}</h5>
+        <p class="card-text">{{event.description}}</p>
+        <button class="btn btn-success" (click)="deleteSpecial(event._id)">Delete</button>
+      </div>
+      <div class="card-footer text-muted">
+        {{event.date | date:'shortDate'}}
       </div>
     </div>
   </div>
+</div>
