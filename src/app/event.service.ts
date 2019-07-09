@@ -9,6 +9,7 @@ export class EventService {
   private _eventsUrl = "http://localhost:3000/api/events";
   private _specialEventsUrl = "http://localhost:3000/api/special";
   private _addSpecialEventsUrl = "http://localhost:3000/api/special/add";
+  private _deleteSpecialEventsUrl = "http://localhost:3000/api/special/delete";
 
   constructor(private http: HttpClient) { }
   
@@ -23,4 +24,9 @@ export class EventService {
   addSpecialEvents(specialData){
     return this.http.post<any>(this._addSpecialEventsUrl, specialData)
   }
+
+  deleteSpecialEvents(specialData){
+    return this.http.post<any>(this._deleteSpecialEventsUrl, specialData)
+  }
+
 }

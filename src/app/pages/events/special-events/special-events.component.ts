@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from '../event.service';
+import { EventService } from '../../../event.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router'
 
@@ -55,9 +55,24 @@ export class SpecialEventsComponent implements OnInit {
       )
   }
 
-  deleteSpecial(id)
+  deleteSpecial(event)
   {
-    console.log(`Id1 : ${id}`);
+    //console.log(`Id1 : ${id}`);
+    this._eventService.deleteSpecialEvents(event)
+      .subscribe(
+        res => {
+          //this.eventAdded = true;
+          //this.specialData = {};
+          this.getSpecialEvents();
+        },
+        err => {
+          if( err instanceof HttpErrorResponse ) {
+            if (err.status === 401) {
+              this._router.navigate(['/login']);
+            }
+          }
+        }
+      )
   }
 
 }

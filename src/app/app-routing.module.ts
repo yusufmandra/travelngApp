@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './login/login.component'
-import { RegisterComponent } from './register/register.component'
-import { EventsComponent } from './events/events.component';
-import { SpecialEventsComponent } from './special-events/special-events.component';
+import { LoginComponent } from './pages/auth/login/login.component'
+import { RegisterComponent } from './pages/auth/register/register.component'
+import { EventsComponent } from './pages/events/events/events.component';
+import { SpecialEventsComponent } from './pages/events/special-events/special-events.component';
+import { ListUsersComponent } from './pages/users/list-users/list-users.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -20,6 +21,11 @@ const routes: Routes = [
   {
     path: 'special',
     component: SpecialEventsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'users',
+    component: ListUsersComponent,
     canActivate: [AuthGuard]
   },
   {

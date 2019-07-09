@@ -31,7 +31,7 @@
       <div class="card-body">
         <h5 class="card-title">{{event.name}}</h5>
         <p class="card-text">{{event.description}}</p>
-        <button class="btn btn-success" (click)="deleteSpecial(event._id)">Delete</button>
+        <button class="btn btn-success" (click)="deleteSpecial(event)">Delete</button>
       </div>
       <div class="card-footer text-muted">
         {{event.date | date:'shortDate'}}
