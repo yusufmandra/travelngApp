@@ -15,6 +15,8 @@ import { UserService } from './user.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { ListUsersComponent } from './pages/users/list-users/list-users.component';
+import { HomeComponent } from './pages/home/home.component';
+import { PackagesComponent } from './pages/packages/packages.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ListUsersComponent } from './pages/users/list-users/list-users.componen
     LoginComponent,
     EventsComponent,
     SpecialEventsComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    HomeComponent,
+    PackagesComponent
   ],
   imports: [
     BrowserModule,
