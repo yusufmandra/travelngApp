@@ -52,57 +52,17 @@
       <section class="add_bottom_45">
         <div class="main_title_3">
           <span><em></em></span>
-          <h2>Popular Hotels and Accommodations</h2>
-          <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+          <h2>Popular Destinations</h2>
+          <p>Explore Multi day experiences from local agents</p>
         </div>
         <div class="row">
-          <div class="col-xl-3 col-lg-6 col-md-6">
+          <div class="col-xl-3 col-lg-6 col-md-6" *ngFor="let destination of destinations">
             <a href="hotel-detail.html" class="grid_item">
               <figure>
-                <div class="score"><strong>8.9</strong></div>
-                <img src="assets/img/hotel_1.jpg" class="img-fluid" alt="">
+                <div class="score"><strong>{{destination.count}}</strong></div>
+                <img [src]="destination.img" class="img-fluid" alt="">
                 <div class="info">
-                  <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
-                  <h3>Mariott Hotel</h3>
-                </div>
-              </figure>
-            </a>
-          </div>
-          <!-- /grid_item -->
-          <div class="col-xl-3 col-lg-6 col-md-6">
-            <a href="hotel-detail.html" class="grid_item">
-              <figure>
-                <div class="score"><strong>7.9</strong></div>
-                <img src="assets/img/hotel_2.jpg" class="img-fluid" alt="">
-                <div class="info">
-                  <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
-                  <h3>Concorde Hotel </h3>
-                </div>
-              </figure>
-            </a>
-          </div>
-          <!-- /grid_item -->
-          <div class="col-xl-3 col-lg-6 col-md-6">
-            <a href="hotel-detail.html" class="grid_item">
-              <figure>
-                <div class="score"><strong>7.0</strong></div>
-                <img src="assets/img/hotel_3.jpg" class="img-fluid" alt="">
-                <div class="info">
-                  <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
-                  <h3>Louvre Hotel</h3>
-                </div>
-              </figure>
-            </a>
-          </div>
-          <!-- /grid_item -->
-          <div class="col-xl-3 col-lg-6 col-md-6">
-            <a href="hotel-detail.html" class="grid_item">
-              <figure>
-                <div class="score"><strong>8.9</strong></div>
-                <img src="assets/img/hotel_4.jpg" class="img-fluid" alt="">
-                <div class="info">
-                  <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
-                  <h3>Park Yatt Hotel</h3>
+                  <h3>{{destination.title}}</h3>
                 </div>
               </figure>
             </a>
@@ -110,60 +70,23 @@
           <!-- /grid_item -->
         </div>
         <!-- /row -->
-        <a href="hotels-grid-isotope.html"><strong>View all (157) <i class="arrow_carrot-right"></i></strong></a>
       </section>
       <!-- /section -->
       
       <section>
         <div class="main_title_3">
           <span><em></em></span>
-          <h2>Popular Restaurants</h2>
-          <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+          <h2>Popular Activities</h2>
+          <p>Explore single day experiences from local agents</p>
         </div>
         <div class="row">
-          <div class="col-xl-3 col-lg-6 col-md-6">
+          <div class="col-xl-3 col-lg-6 col-md-6" *ngFor="let activity of activities">
             <a href="restaurant-detail.html" class="grid_item">
               <figure>
-                <div class="score"><strong>8.5</strong></div>
-                <img src="assets/img/restaurant_1.jpg" class="img-fluid" alt="">
+                <div class="score"><strong>{{activity.count}}</strong></div>
+                <img [src]="activity.img" class="img-fluid" alt="">
                 <div class="info">
-                  <h3>Da Alfredo</h3>
-                </div>
-              </figure>
-            </a>
-          </div>
-          <!-- /grid_item -->
-          <div class="col-xl-3 col-lg-6 col-md-6">
-            <a href="restaurant-detail.html" class="grid_item">
-              <figure>
-                <div class="score"><strong>7.9</strong></div>
-                <img src="assets/img/restaurant_2.jpg" class="img-fluid" alt="">
-                <div class="info">
-                  <h3>Slow Food</h3>
-                </div>
-              </figure>
-            </a>
-          </div>
-          <!-- /grid_item -->
-          <div class="col-xl-3 col-lg-6 col-md-6">
-            <a href="restaurant-detail.html" class="grid_item">
-              <figure>
-                <div class="score"><strong>7.5</strong></div>
-                <img src="assets/img/restaurant_3.jpg" class="img-fluid" alt="">
-                <div class="info">
-                  <h3>Bella Napoli</h3>
-                </div>
-              </figure>
-            </a>
-          </div>
-          <!-- /grid_item -->
-          <div class="col-xl-3 col-lg-6 col-md-6">
-            <a href="restaurant-detail.html" class="grid_item">
-              <figure>
-                <div class="score"><strong>9.0</strong></div>
-                <img src="assets/img/restaurant_4.jpg" class="img-fluid" alt="">
-                <div class="info">
-                  <h3>Marcus</h3>
+                  <h3>{{activity.title}}</h3>
                 </div>
               </figure>
             </a>
@@ -171,7 +94,6 @@
           <!-- /grid_item -->
         </div>
         <!-- /row -->
-        <a href="restaurants-grid-isotope.html"><strong>View all (157) <i class="arrow_carrot-right"></i></strong></a>
       </section>
       <!-- /section -->
     </div>

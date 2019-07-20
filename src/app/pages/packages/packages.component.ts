@@ -44,6 +44,7 @@ export class PackagesComponent implements OnInit {
                 'category': 'HISTORIC'
               },
              ];
+             
   constructor() { }
 
   ngOnInit() {
