@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  loginUserData = {}
+  loginUserData = {};
+  loginError = false;
 
   constructor(private _auth: AuthService,
               private _router: Router) { }
@@ -22,13 +23,16 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser () {
+    this.loginError = false;
     this._auth.loginUser(this.loginUserData)
     .subscribe(
       res => {
-        localStorage.setItem('token', res.token)
-        this._router.navigate(['/'])
+        localStorage.setItem('token', res.token);
+        this._router.navigate(['/']);
       },
-      err => console.log(err)
+      err => {
+        this.loginError = true;
+      }
     ) 
   }
 

@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  registerUserData = {}
+  registerUserData = {};
+  userFound = false;
 
   constructor(private _auth: AuthService,
               private _router: Router) { }
@@ -22,13 +23,16 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser(){
+    this.userFound = false;
     this._auth.registerUser(this.registerUserData)
         .subscribe(
           res => {
             localStorage.setItem('token', res.token)
             this._router.navigate(['/'])
           },
-          err => console.log(err)
+          err => {
+            this.userFound = true;
+          }
         )
   }
 

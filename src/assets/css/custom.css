@@ -9,3 +9,8 @@
 .main-menu > ul > li span> a.active, header.sticky .main-menu > ul > li span > a.active{
   color: #fc5b62;
 }
+
+button:disabled, button:disabled:hover{
+  background: grey;
+  cursor: text;
+}
