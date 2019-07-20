@@ -13,7 +13,7 @@ import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'packages',

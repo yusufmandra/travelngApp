@@ -17,6 +17,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { ListUsersComponent } from './pages/users/list-users/list-users.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PackagesComponent } from './pages/packages/packages.component';
+import { NavComponent } from './components/nav/nav.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { PackagesComponent } from './pages/packages/packages.component';
     SpecialEventsComponent,
     ListUsersComponent,
     HomeComponent,
-    PackagesComponent
+    PackagesComponent,
+    NavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

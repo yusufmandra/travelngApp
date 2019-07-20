@@ -15,6 +15,10 @@ export class LoginComponent implements OnInit {
               private _router: Router) { }
 
   ngOnInit() {
+    // Set id
+    document.getElementsByTagName("body")[0].setAttribute("id", "login_bg");
+    // Disable loader on Init
+    setTimeout(function() { document.getElementById("preloader").style.display = "none"; }, 500);
   }
 
   loginUser () {

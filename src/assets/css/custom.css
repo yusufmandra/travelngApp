@@ -1,3 +1,11 @@
 /*============================================================================================*/
 /* Your custom styles below */
 /*============================================================================================*/
+
+#preloader {
+  background-color: rgba(255,255,255,.6);
+}
+
+.main-menu > ul > li span> a.active, header.sticky .main-menu > ul > li span > a.active{
+  color: #fc5b62;
+}
