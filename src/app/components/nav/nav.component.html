@@ -22,10 +22,13 @@
           <span><a routerLink="/packages" routerLinkActive="active">Packages</a></span>
         </li>
         <li>
-          <span><a routerLink="/login" routerLinkActive="active">Login</a></span>
+          <span><a routerLink="/login" routerLinkActive="active" *ngIf="!_authService.loggedIn()" >Login</a></span>
         </li>
         <li>
-          <span><a routerLink="/register" routerLinkActive="active">Register</a></span>
+          <span><a routerLink="/register" routerLinkActive="active" *ngIf="!_authService.loggedIn()">Register</a></span>
+        </li>
+        <li>
+          <span><a (click)="_authService.logoutUser()" style="cursor:pointer" *ngIf="_authService.loggedIn()">Logout</a></span>
         </li>
       </ul>
     </nav>
