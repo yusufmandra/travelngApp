@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemefixesService } from '../../services/themefixes.service';
 
 @Component({
   selector: 'app-home',
@@ -53,13 +54,12 @@ export class HomeComponent implements OnInit {
               }
              ];
 
-  constructor() { }
+  constructor(private _themefixesService: ThemefixesService) { }
 
   ngOnInit() {
-    // Remove id
-    document.getElementsByTagName("body")[0].removeAttribute("id");
-    // Disable loader on Init
-    setTimeout(function() { document.getElementById("preloader").style.display = "none"; }, 500);
+
+    // Remove loader
+    this._themefixesService.removeLoader();
   }
 
 }

@@ -19,7 +19,10 @@
           <span><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></span>
         </li>
         <li>
-          <span><a routerLink="/packages" routerLinkActive="active">Packages</a></span>
+          <span><a routerLink="/packages" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Packages</a></span>
+        </li>
+        <li>
+          <span><a routerLink="/packages/add" routerLinkActive="active">Add Packages</a></span>
         </li>
         <li>
           <span><a routerLink="/login" routerLinkActive="active" *ngIf="!_authService.loggedIn()" >Login</a></span>

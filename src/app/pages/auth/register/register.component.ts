@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../auth.service';
 import { Router } from '@angular/router';
+import { ThemefixesService } from '../../../services/themefixes.service';
 
 @Component({
   selector: 'app-register',
@@ -13,13 +14,13 @@ export class RegisterComponent implements OnInit {
   userFound = false;
 
   constructor(private _auth: AuthService,
-              private _router: Router) { }
+              private _router: Router,
+              private _themefixesService: ThemefixesService) { }
 
   ngOnInit() {
-    // Set id
-    document.getElementsByTagName("body")[0].setAttribute("id", "register_bg");
-    // Disable loader on Init
-    setTimeout(function() { document.getElementById("preloader").style.display = "none"; }, 500);
+
+    // Set Register Background
+    this._themefixesService.setRegisterBg();
   }
 
   registerUser(){

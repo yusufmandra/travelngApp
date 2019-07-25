@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PackageService } from '../../services/package.service';
+import { ThemefixesService } from '../../services/themefixes.service';
 
 @Component({
   selector: 'app-packages',
@@ -10,15 +11,14 @@ export class PackagesComponent implements OnInit {
 
   packages = [];
              
-  constructor(private _packageService: PackageService) { }
+  constructor(private _packageService: PackageService,
+              private _themefixesService: ThemefixesService) { }
 
   ngOnInit() {
     // get packages
     this.getPackages();
-    // Remove id
-    document.getElementsByTagName("body")[0].removeAttribute("id");
-    // Disable loader on Init
-    setTimeout(function() { document.getElementById("preloader").style.display = "none"; }, 500);
+    // Remove loader
+    this._themefixesService.removeLoader();
   }
 
   getPackages(){

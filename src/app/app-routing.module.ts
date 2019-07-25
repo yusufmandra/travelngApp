@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
 import { PackagesComponent } from './pages/packages/packages.component';
+import { AddPackageComponent } from './pages/admin/add-package/add-package.component';
 import { LoginComponent } from './pages/auth/login/login.component'
 import { RegisterComponent } from './pages/auth/register/register.component'
 import { EventsComponent } from './pages/events/events/events.component';
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'packages',
     component: PackagesComponent
+  },
+  {
+    path: 'packages/add',
+    component: AddPackageComponent
   },
   {
     path: 'events',

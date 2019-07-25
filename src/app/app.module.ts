@@ -19,6 +19,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { PackagesComponent } from './pages/packages/packages.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AddPackageComponent } from './pages/admin/add-package/add-package.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HomeComponent,
     PackagesComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    AddPackageComponent
   ],
   imports: [
     BrowserModule,
