@@ -14,3 +14,14 @@ button:disabled, button:disabled:hover{
   background: grey;
   cursor: text;
 }
+
+.hero_in.package_details:before{
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
+}
+
+.hero_in.package_details .wrapper{
+  background-color: rgba(0, 0, 0, 0.6);  
+}

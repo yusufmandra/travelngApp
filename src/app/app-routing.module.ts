@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
 import { PackagesComponent } from './pages/packages/packages.component';
+import { SinglePackageComponent } from './pages/single-package/single-package.component';
 import { AddPackageComponent } from './pages/admin/add-package/add-package.component';
+import { CartComponent } from './pages/cart/cart.component';
 import { LoginComponent } from './pages/auth/login/login.component'
 import { RegisterComponent } from './pages/auth/register/register.component'
 import { EventsComponent } from './pages/events/events/events.component';
@@ -21,8 +23,16 @@ const routes: Routes = [
     component: PackagesComponent
   },
   {
+    path: 'package/:id',
+    component: SinglePackageComponent
+  },
+  {
     path: 'packages/add',
     component: AddPackageComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   },
   {
     path: 'events',

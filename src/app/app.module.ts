@@ -20,6 +20,8 @@ import { PackagesComponent } from './pages/packages/packages.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AddPackageComponent } from './pages/admin/add-package/add-package.component';
+import { SinglePackageComponent } from './pages/single-package/single-package.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { AddPackageComponent } from './pages/admin/add-package/add-package.compo
     PackagesComponent,
     NavComponent,
     FooterComponent,
-    AddPackageComponent
+    AddPackageComponent,
+    SinglePackageComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
