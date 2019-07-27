@@ -22,6 +22,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AddPackageComponent } from './pages/admin/add-package/add-package.component';
 import { SinglePackageComponent } from './pages/single-package/single-package.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { OrderCompletedComponent } from './pages/order-completed/order-completed.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { CartComponent } from './pages/cart/cart.component';
     FooterComponent,
     AddPackageComponent,
     SinglePackageComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent,
+    OrderCompletedComponent
   ],
   imports: [
     BrowserModule,

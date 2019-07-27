@@ -6,6 +6,8 @@ import { PackagesComponent } from './pages/packages/packages.component';
 import { SinglePackageComponent } from './pages/single-package/single-package.component';
 import { AddPackageComponent } from './pages/admin/add-package/add-package.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { OrderCompletedComponent } from './pages/order-completed/order-completed.component';
 import { LoginComponent } from './pages/auth/login/login.component'
 import { RegisterComponent } from './pages/auth/register/register.component'
 import { EventsComponent } from './pages/events/events/events.component';
@@ -33,6 +35,14 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent
+  },
+  {
+    path: 'order-completed',
+    component: OrderCompletedComponent
   },
   {
     path: 'events',

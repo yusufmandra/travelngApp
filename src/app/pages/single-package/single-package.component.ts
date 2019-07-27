@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PackageService } from '../../services/package.service';
 import { ThemefixesService } from '../../services/themefixes.service';
-import { ActivatedRoute } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-single-package',
@@ -11,10 +11,13 @@ import { ActivatedRoute } from '@angular/router'
 export class SinglePackageComponent implements OnInit {
 
   package = [];
+  cartPackages = [];
+  packageAddedToCart = [];
 
   constructor(private _packageService: PackageService,
               private _themefixesService: ThemefixesService,
-              private _router: ActivatedRoute) { }
+              private _activatedRouter: ActivatedRoute,
+              private _router: Router) { }
 
   ngOnInit() {
 
@@ -25,7 +28,7 @@ export class SinglePackageComponent implements OnInit {
   }
 
   getSinglePackage(){
-    const packageId = this._router.snapshot.params.id;
+    const packageId = this._activatedRouter.snapshot.params.id;
     this._packageService.getSinglePackage(packageId)
       .subscribe(
         res => {
@@ -47,6 +50,25 @@ export class SinglePackageComponent implements OnInit {
       
     /* Append style to the tag name */ 
     document.getElementsByTagName("head")[0].appendChild(css);
+  }
+
+  onAddCart(packageObj) {
+
+    this.packageAddedToCart = JSON.parse(localStorage.getItem('packages'));
+
+    // Add Old Cart Packages
+    if(this.packageAddedToCart != null){
+      this.cartPackages = this.packageAddedToCart;
+    }
+
+    // Check current package is not in Cart
+    const tempPackage = this.packageAddedToCart.find(p=>p._id == packageObj._id);
+    if(tempPackage == null){
+      this.cartPackages.push(packageObj);
+    }
+    
+    localStorage.setItem('packages', JSON.stringify(this.cartPackages));
+    this._router.navigate(['/cart']);
   }
 
 }
