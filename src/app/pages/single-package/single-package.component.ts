@@ -59,10 +59,9 @@ export class SinglePackageComponent implements OnInit {
     // Add Old Cart Packages
     if(this.packageAddedToCart != null){
       this.cartPackages = this.packageAddedToCart;
+      var tempPackage = this.packageAddedToCart.find(p=>p._id == packageObj._id);  
     }
 
-    // Check current package is not in Cart
-    const tempPackage = this.packageAddedToCart.find(p=>p._id == packageObj._id);
     if(tempPackage == null){
       this.cartPackages.push(packageObj);
     }

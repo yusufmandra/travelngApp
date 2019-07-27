@@ -9,6 +9,7 @@ import { ThemefixesService } from '../../services/themefixes.service';
 export class CartComponent implements OnInit {
 
   cartPackages = [];
+  totalPrice = 0;
 
   constructor(private _themefixesService: ThemefixesService) { }
 
@@ -21,6 +22,11 @@ export class CartComponent implements OnInit {
 
   listCartPackages() {
     this.cartPackages = JSON.parse(localStorage.getItem('packages'));
+
+    this.totalPrice = this.cartPackages
+                    .map(item => item.price)
+                    .reduce((prev, curr) => parseInt(prev) + parseInt(curr) , 0);
+
   }
 
   removePackage(packageObj) {
