@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemefixesService } from '../../services/themefixes.service';
 import { PackageService } from '../../services/package.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -9,52 +10,70 @@ import { PackageService } from '../../services/package.service';
 })
 export class CheckoutComponent implements OnInit {
 
+  orderData = {
+    "customerName": '',
+    "customerEmail": '',
+    "totalAmount": 0,
+    "paymentMethod": "cod",
+    "paymentRefId": "RF-ZX1390501090",
+    "createdAt": new Date().toISOString()
+  };
+
   constructor(private _themefixesService: ThemefixesService,
-              private _packageService: PackageService) { }
+              private _packageService: PackageService,
+              private _router: Router) { }
 
   ngOnInit() {
-
+    console.log(this.orderData);
+    // Set Total Amount
+    this.getTotalAmount();
     // Remove loader
     this._themefixesService.removeLoader();
   }
 
+  getTotalAmount() {
+    const packages = JSON.parse(localStorage.getItem('packages'));
+    if(packages){
+      this.orderData.totalAmount = packages
+                    .map(item => item.price)
+                    .reduce((prev, curr) => parseInt(prev) + parseInt(curr) , 0);
+    }
+  }
+
   createOrder() {
+    // Packages from Localstorage
+    const packages = JSON.parse(localStorage.getItem('packages'));
+    // Order details from Local storage
+    var orderDetailsArray = [];
+    var jsonObj;
+
+    // Order details array
+    packages.forEach(p => {
+          jsonObj = {
+              "packageId": p._id,
+              "packageName": p.title,
+              "packagePrice": p.price,
+              "createdAt": new Date().toISOString()
+            };
+            orderDetailsArray.push(jsonObj);
+         });
+
     const data = {
-        "order": {
-        "customerId": "5d32e32da97f06189bebd88a",
-        "customerName": "Yusuf G",
-        "customerEmail": "mandrayusuf@gmail.com",
-        "totalAmount": "5000",
-        "paymentMethod": "google",
-        "paymentRefId": "RF-ZX1390501090",
-        "createdAt": "2012-04-23T18:25:43.511Z"
-        },
-        "order_details": [
-          {
-                "packageId":"5d32ee151c9d440000d3c6d8",
-                "packageName":"Arc Triomphe",
-                "packagePrice":"54",
-                "createdAt":"2012-04-23T18:25:43.511Z"
-          },
-          {
-            "packageId":"5d32ee5b1c9d440000d3c6d9",
-                  "packageName":"Notredam",
-                  "packagePrice":"125",
-                  "createdAt":"2012-04-23T18:25:43.511Z"
-          }
-        ]
+        "order": this.orderData,
+        "order_details": orderDetailsArray
       }
+
     // Create Order call
-    // this._packageService.createOrder(data)
-    //     .subscribe(
-    //       res => {
-    //         console.log(res);
-    //         // this._router.navigate(['/'])
-    //       },
-    //       err => {
-    //         console.log(err);
-    //       }
-    //     )
+    this._packageService.createOrder(data)
+        .subscribe(
+          res => {
+            localStorage.removeItem('packages');
+            this._router.navigate(['/order-completed'])
+          },
+          err => {
+            console.log(err);
+          }
+        )
   }
 
 }

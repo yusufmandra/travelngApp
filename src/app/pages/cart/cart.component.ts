@@ -22,11 +22,11 @@ export class CartComponent implements OnInit {
 
   listCartPackages() {
     this.cartPackages = JSON.parse(localStorage.getItem('packages'));
-
-    this.totalPrice = this.cartPackages
+    if(this.cartPackages){
+      this.totalPrice = this.cartPackages
                     .map(item => item.price)
-                    .reduce((prev, curr) => parseInt(prev) + parseInt(curr) , 0);
-
+                    .reduce((prev, curr) => parseInt(prev) + parseInt(curr) , 0);  
+    }
   }
 
   removePackage(packageObj) {
