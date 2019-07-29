@@ -8,6 +8,7 @@ export class PackageService {
 
   private _packagesUrl = "http://localhost:3000/api/packages";
   private _singlePackageUrl = "http://localhost:3000/api/package";
+  private _createOrderUrl = "http://localhost:3000/api/order/create";
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +18,10 @@ export class PackageService {
 
   getSinglePackage(packageId) {
     return this.http.get<any>(this._singlePackageUrl+'/'+packageId)
+  }
+
+  createOrder(data) {
+    return this.http.post<any>(this._createOrderUrl, data)
   }
 
 }
