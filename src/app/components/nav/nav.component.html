@@ -6,6 +6,9 @@
         <img src="assets/img/logo_sticky.png" width="150" height="36" data-retina="true" alt="" class="logo_sticky">
       </a>
     </div>
+    <ul id="top_menu">
+      <li><a routerLink="/cart" routerLinkActive="active" class="cart-menu-btn" title="Cart"><strong>{{cartItems}}</strong></a></li>
+    </ul>
     <a href="#menu" class="btn_mobile">
       <div class="hamburger hamburger--spin" id="hamburger">
         <div class="hamburger-box">
@@ -31,7 +34,12 @@
           <span><a routerLink="/register" routerLinkActive="active" *ngIf="!_authService.loggedIn()">Register</a></span>
         </li>
         <li>
-          <span><a (click)="_authService.logoutUser()" style="cursor:pointer" *ngIf="_authService.loggedIn()">Logout</a></span>
+          <span><a [routerLink]="" fragment="" *ngIf="_authService.loggedIn()">Profile</a></span>
+          <ul>
+            <li>
+              <a href="#" (click)="_authService.logoutUser()" style="cursor:pointer" *ngIf="_authService.loggedIn()">Logout</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>

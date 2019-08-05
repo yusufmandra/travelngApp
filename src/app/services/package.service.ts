@@ -9,6 +9,7 @@ export class PackageService {
   private _packagesUrl = "http://localhost:3000/api/packages";
   private _singlePackageUrl = "http://localhost:3000/api/package";
   private _createOrderUrl = "http://localhost:3000/api/order/create";
+  private _addPackageUrl = "http://localhost:3000/api/packages/add";
 
   constructor(private http: HttpClient) { }
 
@@ -22,6 +23,10 @@ export class PackageService {
 
   createOrder(data) {
     return this.http.post<any>(this._createOrderUrl, data)
+  }
+
+  addPackage(data) {
+    return this.http.post<any>(this._addPackageUrl, data)
   }
 
 }

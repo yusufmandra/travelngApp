@@ -8,9 +8,17 @@ import { AuthService } from '../../auth.service';
 })
 export class NavComponent implements OnInit {
 
+  cartItems = 0;
+
   constructor(private _authService: AuthService) { }
 
   ngOnInit() {
+
+    this.totalCartItems();
+  }
+
+  totalCartItems(){
+    this.cartItems = JSON.parse(localStorage.getItem('packages')).length;
   }
 
 }

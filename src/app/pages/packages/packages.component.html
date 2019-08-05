@@ -16,7 +16,7 @@
             <div class="col-lg-5">
               <figure>
                 <small>{{package.category}}</small>
-                <a [routerLink]="['/package', package._id]" ><img [src]="package.img" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
+                <a [routerLink]="['/package', package._id]" ><img [src]="'http://localhost:3000/'+package.img" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
               </figure>
             </div>
             <div class="col-lg-7">
