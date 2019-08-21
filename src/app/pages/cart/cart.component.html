@@ -53,7 +53,7 @@
                   <tr *ngFor="let package of cartPackages">
                     <td>
                       <div class="thumb_cart">
-                        <img [attr.src]="package.img" alt="Image">
+                        <img [attr.src]="'http://localhost:3000/'+package.img" alt="Image">
                       </div>
                       <span class="item_cart">{{ package.title }}</span>
                     </td>
